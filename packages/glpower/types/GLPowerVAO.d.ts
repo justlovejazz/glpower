@@ -16,7 +16,7 @@ export declare class GLPowerVAO {
     private gl;
     vao: WebGLVertexArrayObject | null;
     program: WebGLProgram;
-    protected indexBuffer: GLPowerBuffer | null;
+    indexBuffer: GLPowerBuffer | null;
     protected attributes: Map<string, AttributeBuffer>;
     vertCount: number;
     indexCount: number;
@@ -28,6 +28,7 @@ export declare class GLPowerVAO {
     setIndex(indexBuffer: GLPowerBuffer | null): void;
     use(cb?: (vao: GLPowerVAO) => void): void;
     getVAO(): WebGLVertexArrayObject | null;
+    dispose(): void;
 }
 export {};
 //# sourceMappingURL=GLPowerVAO.d.ts.map

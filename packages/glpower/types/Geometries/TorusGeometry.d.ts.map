@@ -1,0 +1,1 @@
+{"version":3,"file":"TorusGeometry.d.ts","sourceRoot":"","sources":["../../src/Geometries/TorusGeometry.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,QAAQ,EAAE,MAAM,YAAY,CAAC;AAGtC,qBAAa,aAAc,SAAQ,QAAQ;gBAE7B,WAAW,GAAE,MAAU,EAAE,WAAW,GAAE,MAAY,EAAE,cAAc,GAAE,MAAW,EAAE,eAAe,GAAE,MAAW;CAkE1H"}

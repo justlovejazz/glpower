@@ -3,6 +3,10 @@ node_modules
 /docs
 /public
 
+.env
+.env.js
+.env.json
+.env-cmdrc
 # jest
 coverage
 report.json

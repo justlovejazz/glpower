@@ -13,6 +13,7 @@ export * from './Geometries/CubeGeometry';
 export * from './Geometries/CylinderGeometry';
 export * from './Geometries/PlaneGeometry';
 export * from './Geometries/SphereGeometry';
+export * from './Geometries/TorusGeometry';
 export * from './Geometries/MipMapGeometry';
 export * from './ECS';
 export * from './ECS/Entity';
@@ -26,5 +27,6 @@ export * from './Animation/FCurveGroup';
 export * from './Animation/FCurveKeyFrame';
 export * from './BLidge';
 export * from './utils/EventEmitter';
+export * from './utils/Uniform';
 export * from './types/index';
 //# sourceMappingURL=index.d.ts.map

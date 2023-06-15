@@ -4,6 +4,7 @@ import { ComponentName } from "../Component";
 import { Entity } from "../Entity";
 export declare type EntityQuery = ComponentName[];
 export interface SystemUpdateEvent extends ECSUpdateEvent {
+    systemName: string;
 }
 export declare class System extends EventEmitter {
     protected queries: {

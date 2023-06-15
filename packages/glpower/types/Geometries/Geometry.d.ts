@@ -8,19 +8,14 @@ export declare class Geometry {
         [key: string]: Attribute;
     };
     constructor();
-    setAttribute(name: DefaultAttributeName | (string & {}), array: number[], size: number): void;
+    setAttribute(name: DefaultAttributeName | (string & {}), array: number[], size: number): this;
     getAttribute(name: DefaultAttributeName | (string & {})): Attribute;
     private updateVertCount;
     getAttributeBuffer(core: Power, name: DefaultAttributeName | (string & {}), constructor: Float32ArrayConstructor | Uint16ArrayConstructor, bufferType?: BufferType): AttributeBuffer;
     getComponent(power: Power): {
-        attributes: {
-            buffer: import("../GLPowerBuffer").GLPowerBuffer;
-            size: number;
-            count: number;
-            location?: number | undefined;
-            instanceDivisor?: number | undefined;
+        attributes: (Omit<AttributeBuffer, "count"> & {
             name: string;
-        }[];
+        })[];
         index: AttributeBuffer;
     };
 }

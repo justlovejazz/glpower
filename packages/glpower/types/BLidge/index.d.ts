@@ -1,6 +1,22 @@
 import { EventEmitter } from '../utils/EventEmitter';
 import { IVector2, IVector3 } from "../Math/Vector";
 import { FCurveGroup } from '../Animation/FCurveGroup';
+export declare type BLidgeObjectMessage = {
+    n: string;
+    prnt: string;
+    chld?: BLidgeObjectMessage[];
+    anim?: BLidgeAnimation;
+    ps: IVector3;
+    rt?: IVector3;
+    sc?: IVector3;
+    mat?: {
+        n?: string;
+        uni?: BLidgeAnimation;
+    };
+    t: BLidgeObjectType;
+    v: boolean;
+    prm?: BLidgeCameraParam | BLidgeMeshParam | BLidgeLightParamCommon;
+};
 export declare type BLidgeObject = {
     name: string;
     parent: string;
@@ -11,9 +27,10 @@ export declare type BLidgeObject = {
     scale: IVector3;
     material: BLidgeMaterialParam;
     type: BLidgeObjectType;
+    visible: boolean;
     param?: BLidgeCameraParam | BLidgeMeshParam | BLidgeLightParamCommon;
 };
-export declare type BLidgeObjectType = 'empty' | 'cube' | 'sphere' | 'mesh' | 'camera' | 'plane' | 'light';
+export declare type BLidgeObjectType = 'empty' | 'cube' | 'sphere' | 'cylinder' | 'mesh' | 'camera' | 'plane' | 'light';
 export declare type BLidgeCameraParam = {
     fov: number;
 };
@@ -28,7 +45,7 @@ declare type BLidgeLightParamCommon = {
     type: 'directional' | 'spot';
     color: IVector3;
     intensity: number;
-    useShadowMap: boolean;
+    shadowMap: boolean;
 };
 export declare type BLidgeDirectionalLightParam = {
     type: 'directional';
@@ -46,7 +63,7 @@ export declare type BLidgeSceneData = {
     animations: {
         [key: string]: BLidgeAnimationCurveParam[];
     };
-    scene: BLidgeObject;
+    scene: BLidgeObjectMessage;
     frame: BLidgeSceneFrame;
 };
 export declare type BLidgeAnimation = {
@@ -54,13 +71,13 @@ export declare type BLidgeAnimation = {
 };
 export declare type BLidgeAnimationCurveAxis = 'x' | 'y' | 'z' | 'w';
 export declare type BLidgeAnimationCurveParam = {
-    keyframes: BLidgeAnimationCurveKeyFrameParam[];
+    k: BLidgeAnimationCurveKeyFrameParam[];
     axis: BLidgeAnimationCurveAxis;
 };
 export declare type BLidgeAnimationCurveKeyFrameParam = {
     c: IVector2;
-    h_l: IVector2;
-    h_r: IVector2;
+    h_l?: IVector2;
+    h_r?: IVector2;
     e: string;
     i: "B" | "L" | "C";
 };
@@ -97,6 +114,7 @@ export declare class BLidge extends EventEmitter {
     private onMessage;
     private onClose;
     getCurveGroup(name: string): FCurveGroup | undefined;
+    setFrame(frame: number): void;
     dispose(): void;
     disposeWS(): void;
 }
